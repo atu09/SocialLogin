@@ -2,42 +2,33 @@ package alivemind.sociallogin;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+
+import alivemind.sociallogin.Instagram.Insta;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Initial commit
-    //22222
-    //atirek
-    //sahil commits again
-    //atirek commits again
+
+    String CLIENT_ID = "d4f1cb6d2eaa47ceb07ec6bc2a9d5ed2";
+    String SECRET_KEY = "2025b41554f946f7847d7037d254c508";
+    String REDIRECT_URL = "http://test.alive-mind.com";
+
+    Insta insta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        insta = new Insta(this, CLIENT_ID, SECRET_KEY, REDIRECT_URL);
+        insta.login();
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void fetch(View view) {
+        Log.d("Insta>>", insta.InstaUserData().toString());
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
