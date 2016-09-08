@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Twitter.TwitterActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="3c31b7a5fc604f03c0cfdd2747b83b6254d893c4" />
+
     </application>
 
 </manifest>
