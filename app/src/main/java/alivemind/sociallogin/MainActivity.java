@@ -1,7 +1,6 @@
 package alivemind.sociallogin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -15,8 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import alivemind.sociallogin.Instagram.Insta;
-import alivemind.sociallogin.Twitter.TwitterActivity;
-import alivemind.sociallogin.Twitter.TwitterClass;
+import alivemind.sociallogin.Twitter.Twits;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TWITTER_KEY = "fFEoAWP2W3ooex3I5SzyVB8jm";
     private static final String TWITTER_SECRET = "w1fYPksl0op1PWYT4aUpt6x4vGNgwxSuxUANzZEUAN38nBS3Gd";
 
-    TwitterClass twitterClass;
+    Twits twits;
 
     boolean aBoolean = false;
 
@@ -49,17 +47,17 @@ public class MainActivity extends AppCompatActivity {
         insta = new Insta(this, INSTAGRAM_CLIENT_ID, INSTAGRAM_SECRET_KEY, INSTAGRAM_REDIRECT_URL);
         insta.login();
 */
-        twitterClass = new TwitterClass(TWITTER_KEY, TWITTER_SECRET);
+        twits = new Twits(TWITTER_KEY, TWITTER_SECRET);
     }
 
     public void fetch(View view) {
         //Log.d("Insta>>", insta.InstaUserData().toString());
         if (aBoolean) {
             aBoolean = false;
-            Log.d("Twitter>>>", twitterClass.fetchTwitterData().toString());
+            Log.d("Twitter>>>", twits.fetchTwitterData().toString());
         } else {
             aBoolean = true;
-            twitterClass.login(MainActivity.this);
+            twits.login(MainActivity.this);
         }
     }
 

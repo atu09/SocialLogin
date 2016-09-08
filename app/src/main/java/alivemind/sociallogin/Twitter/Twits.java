@@ -8,12 +8,12 @@ import java.util.ArrayList;
 /**
  * Created by Alm on 9/6/2016.
  */
-public class TwitterClass {
+public class Twits {
 
     public String TWITTER_KEY;
     public String TWITTER_SECRET;
 
-    public TwitterClass(String TWITTER_KEY, String TWITTER_SECRET) {
+    public Twits(String TWITTER_KEY, String TWITTER_SECRET) {
         this.TWITTER_KEY = TWITTER_KEY;
         this.TWITTER_SECRET = TWITTER_SECRET;
 
