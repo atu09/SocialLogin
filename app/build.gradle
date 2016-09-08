@@ -43,4 +43,7 @@ dependencies {
     compile('com.twitter.sdk.android:twitter:1.14.1@aar') {
         transitive = true;
     }
+    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    compile 'com.google.android.gms:play-services-auth:9.0.0'
+
 }

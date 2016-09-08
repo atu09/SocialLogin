@@ -19,11 +19,28 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Twitter.TwitterActivity" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="3c31b7a5fc604f03c0cfdd2747b83b6254d893c4" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_plus_api_key" />
+
+        <activity android:name=".Twitter.TwitterActivity" />
+
+        <activity android:name=".Facebook.FacebookActivity" />
+
+        <activity android:name=".GooglePlus.GooglePlusActivity" />
+
 
     </application>
 

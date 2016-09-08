@@ -27,28 +27,19 @@ import io.fabric.sdk.android.Fabric;
  */
 public class TwitterActivity extends AppCompatActivity {
 
-    public static String TWITTER_KEY;
-    public static String TWITTER_SECRET;
     public TwitterLoginButton loginButton;
     public static ArrayList<String> list = new ArrayList<>();
 
     TwitterSession session;
 
-    public static void setTwitter(String API_KEY, String API_SECRET) {
-        TWITTER_KEY = API_KEY;
-        TWITTER_SECRET = API_SECRET;
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.twitter_activity);
 
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(getString(R.string.twitter_client_key), getString(R.string.twitter_client_secret));
         Fabric.with(this, new Twitter(authConfig));
 
-        loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
+        loginButton = new TwitterLoginButton(this);
 
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override

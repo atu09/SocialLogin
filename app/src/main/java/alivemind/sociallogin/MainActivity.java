@@ -10,6 +10,12 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+
+import alivemind.sociallogin.Facebook.Faces;
+import alivemind.sociallogin.GooglePlus.GooglePlus;
+import io.fabric.sdk.android.Fabric;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -18,23 +24,18 @@ import alivemind.sociallogin.Twitter.Twits;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "fFEoAWP2W3ooex3I5SzyVB8jm";
-    private static final String TWITTER_SECRET = "w1fYPksl0op1PWYT4aUpt6x4vGNgwxSuxUANzZEUAN38nBS3Gd";
-
+    Insta insta;
     Twits twits;
+    Faces faces;
+    GooglePlus googlePlus;
 
-    boolean aBoolean = false;
+    boolean instaCheck = false;
+    boolean twitsCheck = false;
+    boolean facesCheck = false;
+    boolean googlePlusCheck = false;
 
     String LINKEDIN_CLIENT_ID = "819cfy4b95ckxh";
     String LINKEDIN_SECRET_KEY = "7OlMoyvJwlaKCGLv";
-
-    String INSTAGRAM_CLIENT_ID = "d4f1cb6d2eaa47ceb07ec6bc2a9d5ed2";
-    String INSTAGRAM_SECRET_KEY = "2025b41554f946f7847d7037d254c508";
-    String INSTAGRAM_REDIRECT_URL = "http://test.alive-mind.com";
-
-    Insta insta;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +44,51 @@ public class MainActivity extends AppCompatActivity {
 
         generateSHAKey();
 
-/*
-        insta = new Insta(this, INSTAGRAM_CLIENT_ID, INSTAGRAM_SECRET_KEY, INSTAGRAM_REDIRECT_URL);
-        insta.login();
-*/
-        twits = new Twits(TWITTER_KEY, TWITTER_SECRET);
+        insta = new Insta(this);
+        twits = new Twits(this);
+        faces = new Faces(this);
+        googlePlus = new GooglePlus(this);
     }
 
     public void fetch(View view) {
-        //Log.d("Insta>>", insta.InstaUserData().toString());
-        if (aBoolean) {
-            aBoolean = false;
-            Log.d("Twitter>>>", twits.fetchTwitterData().toString());
-        } else {
-            aBoolean = true;
-            twits.login(MainActivity.this);
+        int id = view.getId();
+        switch (id) {
+            case R.id.btn_insta:
+                if (instaCheck) {
+                    instaCheck = false;
+                    Log.d("CheckInsta>>", insta.instaUserData().toString());
+                } else {
+                    instaCheck = true;
+                    insta.login();
+                }
+                break;
+            case R.id.btn_twitter:
+                if (twitsCheck) {
+                    twitsCheck = false;
+                    Log.d("CheckTwitter>>>", twits.twitterUserData().toString());
+                } else {
+                    twitsCheck = true;
+                    twits.login();
+                }
+                break;
+            case R.id.btn_facebook:
+                if (facesCheck) {
+                    facesCheck = false;
+                    Log.d("CheckFacebook>>>", faces.facebookUserData().toString());
+                } else {
+                    facesCheck = true;
+                    faces.login();
+                }
+                break;
+            case R.id.btn_googlePlus:
+                if (googlePlusCheck) {
+                    googlePlusCheck = false;
+                    Log.d("CheckGooglePlus>>>", googlePlus.googlePlusUserData().toString());
+                } else {
+                    googlePlusCheck = true;
+                    googlePlus.login();
+                }
+                break;
         }
     }
 

@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">SocialLogin</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="twitter_client_key">f6B4NTEd3BYf8suR8aVKKCJOl</string>
+    <string name="twitter_client_secret">1xXlgvHQOu5qYR08gZG1oFrbp1IVUoY6penf0AYqdqlqVpP1DU</string>
+
+    <string name="instagram_client_key">d4f1cb6d2eaa47ceb07ec6bc2a9d5ed2</string>
+    <string name="instagram_client_secret">2025b41554f946f7847d7037d254c508</string>
+    <string name="instagram_redirect_url">http://test.alive-mind.com</string>
+
+    <string name="facebook_app_id">1064896350245162</string>
+
+    <string name="google_plus_api_key">AIzaSyADzrR_2K-NkPrd2LFRWuCJ6i6jePnxCxU</string>
+
 </resources>

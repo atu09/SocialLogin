@@ -10,22 +10,17 @@ import java.util.ArrayList;
  */
 public class Twits {
 
-    public String TWITTER_KEY;
-    public String TWITTER_SECRET;
+    Context context;
 
-    public Twits(String TWITTER_KEY, String TWITTER_SECRET) {
-        this.TWITTER_KEY = TWITTER_KEY;
-        this.TWITTER_SECRET = TWITTER_SECRET;
-
-        TwitterActivity.setTwitter(TWITTER_KEY, TWITTER_SECRET);
-
+    public Twits(Context context) {
+        this.context = context;
     }
 
-    public ArrayList<String> fetchTwitterData() {
+    public ArrayList<String> twitterUserData() {
         return TwitterActivity.list;
     }
 
-    public void login(Context context) {
+    public void login() {
         context.startActivity(new Intent(context, TwitterActivity.class));
     }
 }
