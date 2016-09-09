@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        generateSHAKey();
+        generateSHAKey(this);
 
         insta = new Insta(this);
         twits = new Twits(this);
@@ -92,10 +92,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void generateSHAKey() {
+    public void generateSHAKey(Context context) {
         try {
-            Context context = getApplicationContext();
-            PackageInfo info = context.getPackageManager().getPackageInfo("alivemind.sociallogin", PackageManager.GET_SIGNATURES); //package name here
+            PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
