@@ -39,6 +39,7 @@ public class GooglePlusActivity extends AppCompatActivity implements GoogleApiCl
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
         finish();
     }
 
@@ -62,6 +63,7 @@ public class GooglePlusActivity extends AppCompatActivity implements GoogleApiCl
             list.add(acct.getDisplayName());
             list.add(String.valueOf(acct.getPhotoUrl()));
             list.add(acct.getEmail());
+
             mGoogleApiClient.clearDefaultAccountAndReconnect();
 
             finish();

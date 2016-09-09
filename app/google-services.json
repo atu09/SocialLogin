@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "686133445005",
+    "project_id": "firebase-integrationapp"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686133445005:android:2bcf9ab6f3ed42ce",
+        "android_client_info": {
+          "package_name": "alivemind.sociallogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686133445005-tdcomsefac3ct53jbeblmphm3h764seh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "alivemind.sociallogin",
+            "certificate_hash": "A45AB2EDF0A66A378EE8FD8514DEF39D36033B06"
+          }
+        },
+        {
+          "client_id": "686133445005-jj3fu2nfl6ej4jprkea0onol0o6t7mho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADzrR_2K-NkPrd2LFRWuCJ6i6jePnxCxU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
